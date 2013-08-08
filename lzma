@@ -1,0 +1,9 @@
+#!/bin/bash
+DEBUG="ON"; #comment this line to default Unity params or make it empty
+LZMA_PARAMS="-a0 -d0 -fb5 -mc0 -lc0 -pb0";
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
+if [ -n "$DEBUG" ]; then
+  $DIR/lzma.real $1 "$2" "$3" $LZMA_PARAMS;
+else
+	$DIR/lzma.real "$@";
+fi
